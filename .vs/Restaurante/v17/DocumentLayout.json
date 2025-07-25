@@ -1,0 +1,86 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\redin\\OneDrive\\\u00C1rea de Trabalho\\ProjetosHV\\Restaurante\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{38F86AFE-16F4-4308-9461-DA258BDEFD07}|Restaurante.Api\\Restaurante.Api.csproj|c:\\users\\redin\\onedrive\\\u00E1rea de trabalho\\projetoshv\\restaurante\\restaurante.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{38F86AFE-16F4-4308-9461-DA258BDEFD07}|Restaurante.Api\\Restaurante.Api.csproj|solutionrelative:restaurante.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{38F86AFE-16F4-4308-9461-DA258BDEFD07}|Restaurante.Api\\Restaurante.Api.csproj|c:\\users\\redin\\onedrive\\\u00E1rea de trabalho\\projetoshv\\restaurante\\restaurante.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{38F86AFE-16F4-4308-9461-DA258BDEFD07}|Restaurante.Api\\Restaurante.Api.csproj|solutionrelative:restaurante.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64CA7C2C-5162-4672-B9C8-DFDA0255DB08}|Restaurante.Repositories\\Restaurante.Repositories.csproj|c:\\users\\redin\\onedrive\\\u00E1rea de trabalho\\projetoshv\\restaurante\\restaurante.repositories\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64CA7C2C-5162-4672-B9C8-DFDA0255DB08}|Restaurante.Repositories\\Restaurante.Repositories.csproj|solutionrelative:restaurante.repositories\\usuariorepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9F22C6C1-D75B-44BC-919A-BB2B0AF579EB}|Restaurante.Borders\\Restaurante.Borders.csproj|c:\\users\\redin\\onedrive\\\u00E1rea de trabalho\\projetoshv\\restaurante\\restaurante.borders\\restaurante.borders.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
+      "RelativeMoniker": "D:0:0:{9F22C6C1-D75B-44BC-919A-BB2B0AF579EB}|Restaurante.Borders\\Restaurante.Borders.csproj|solutionrelative:restaurante.borders\\restaurante.borders.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\redin\\OneDrive\\\u00C1rea de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "Restaurante.Api\\appsettings.json",
+              "ToolTip": "C:\\Users\\redin\\OneDrive\\\u00C1rea de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.Api\\appsettings.json",
+              "RelativeToolTip": "Restaurante.Api\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-07-25T21:16:03.837Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "UsuarioRepository.cs",
+              "DocumentMoniker": "C:\\Users\\redin\\OneDrive\\\u00C1rea de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.Repositories\\UsuarioRepository.cs",
+              "RelativeDocumentMoniker": "Restaurante.Repositories\\UsuarioRepository.cs",
+              "ToolTip": "C:\\Users\\redin\\OneDrive\\\u00C1rea de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.Repositories\\UsuarioRepository.cs",
+              "RelativeToolTip": "Restaurante.Repositories\\UsuarioRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T21:15:01.406Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\redin\\OneDrive\\\u00C1rea de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.Api\\Program.cs",
+              "RelativeDocumentMoniker": "Restaurante.Api\\Program.cs",
+              "ToolTip": "C:\\Users\\redin\\OneDrive\\\u00C1rea de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.Api\\Program.cs",
+              "RelativeToolTip": "Restaurante.Api\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-25T21:11:23.212Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Restaurante.Borders.csproj",
+              "DocumentMoniker": "C:\\Users\\redin\\OneDrive\\\u00C1rea de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.Borders\\Restaurante.Borders.csproj",
+              "RelativeDocumentMoniker": "Restaurante.Borders\\Restaurante.Borders.csproj",
+              "ToolTip": "C:\\Users\\redin\\OneDrive\\\u00C1rea de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.Borders\\Restaurante.Borders.csproj",
+              "RelativeToolTip": "Restaurante.Borders\\Restaurante.Borders.csproj",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
+              "WhenOpened": "2025-07-25T21:06:24.737Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
