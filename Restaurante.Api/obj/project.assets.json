@@ -85,6 +85,19 @@
           }
         }
       },
+      "Microsoft.AspNet.Identity.Core/2.2.4": {
+        "type": "package",
+        "compile": {
+          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net45/Microsoft.AspNet.Identity.Core.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
         "type": "package",
         "build": {
@@ -599,6 +612,20 @@
         "runtime": {
           "bin/placeholder/Restaurante.Repositories.dll": {}
         }
+      },
+      "Restaurante.UseCases/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v8.0",
+        "dependencies": {
+          "Microsoft.AspNet.Identity.Core": "2.2.4",
+          "Restaurante.Borders": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Restaurante.UseCases.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Restaurante.UseCases.dll": {}
+        }
       }
     }
   },
@@ -726,6 +753,19 @@
         "lib/netstandard2.0/K4os.Hash.xxHash.xml",
         "lib/netstandard2.1/K4os.Hash.xxHash.dll",
         "lib/netstandard2.1/K4os.Hash.xxHash.xml"
+      ]
+    },
+    "Microsoft.AspNet.Identity.Core/2.2.4": {
+      "sha512": "s3u/o3iG5h0z7Ggukwo4soPwogD56ZrYbolGxTfw41zkuG6jAXUJT/V3EThqHJXGuCNvWSdSnnwAhPfT9Sn36g==",
+      "type": "package",
+      "path": "microsoft.aspnet.identity.core/2.2.4",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "lib/net45/Microsoft.AspNet.Identity.Core.dll",
+        "lib/net45/Microsoft.AspNet.Identity.Core.xml",
+        "microsoft.aspnet.identity.core.2.2.4.nupkg.sha512",
+        "microsoft.aspnet.identity.core.nuspec"
       ]
     },
     "Microsoft.Extensions.ApiDescription.Server/6.0.5": {
@@ -2102,6 +2142,11 @@
       "type": "project",
       "path": "../Restaurante.Repositories/Restaurante.Repositories.csproj",
       "msbuildProject": "../Restaurante.Repositories/Restaurante.Repositories.csproj"
+    },
+    "Restaurante.UseCases/1.0.0": {
+      "type": "project",
+      "path": "../Restaurante.UseCases/Restaurante.UseCases.csproj",
+      "msbuildProject": "../Restaurante.UseCases/Restaurante.UseCases.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -2109,6 +2154,7 @@
       "MySql.Data >= 9.4.0",
       "Restaurante.Borders >= 1.0.0",
       "Restaurante.Repositories >= 1.0.0",
+      "Restaurante.UseCases >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.6.2"
     ]
   },
@@ -2150,6 +2196,9 @@
             },
             "C:\\Users\\redin\\OneDrive\\Área de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.Repositories\\Restaurante.Repositories.csproj": {
               "projectPath": "C:\\Users\\redin\\OneDrive\\Área de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.Repositories\\Restaurante.Repositories.csproj"
+            },
+            "C:\\Users\\redin\\OneDrive\\Área de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.UseCases\\Restaurante.UseCases.csproj": {
+              "projectPath": "C:\\Users\\redin\\OneDrive\\Área de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.UseCases\\Restaurante.UseCases.csproj"
             }
           }
         }
@@ -2201,5 +2250,17 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "O pacote 'Microsoft.AspNet.Identity.Core 2.2.4' foi restaurado usando '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' em vez da estrutura de destino do projeto 'net8.0'. Esse pacote pode não ser totalmente compatível com o seu projeto.",
+      "libraryId": "Microsoft.AspNet.Identity.Core",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }

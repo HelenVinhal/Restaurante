@@ -4,14 +4,14 @@
     "C:\\Users\\redin\\OneDrive\\Área de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.UseCases\\Restaurante.UseCases.csproj": {}
   },
   "projects": {
-    "C:\\Users\\redin\\OneDrive\\Área de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.UseCases\\Restaurante.UseCases.csproj": {
+    "C:\\Users\\redin\\OneDrive\\Área de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.Borders\\Restaurante.Borders.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\redin\\OneDrive\\Área de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.UseCases\\Restaurante.UseCases.csproj",
-        "projectName": "Restaurante.UseCases",
-        "projectPath": "C:\\Users\\redin\\OneDrive\\Área de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.UseCases\\Restaurante.UseCases.csproj",
+        "projectUniqueName": "C:\\Users\\redin\\OneDrive\\Área de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.Borders\\Restaurante.Borders.csproj",
+        "projectName": "Restaurante.Borders",
+        "projectPath": "C:\\Users\\redin\\OneDrive\\Área de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.Borders\\Restaurante.Borders.csproj",
         "packagesPath": "C:\\Users\\redin\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\redin\\OneDrive\\Área de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.UseCases\\obj\\",
+        "outputPath": "C:\\Users\\redin\\OneDrive\\Área de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.Borders\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -50,6 +50,82 @@
       "frameworks": {
         "net8.0": {
           "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\redin\\OneDrive\\Área de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.UseCases\\Restaurante.UseCases.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\redin\\OneDrive\\Área de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.UseCases\\Restaurante.UseCases.csproj",
+        "projectName": "Restaurante.UseCases",
+        "projectPath": "C:\\Users\\redin\\OneDrive\\Área de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.UseCases\\Restaurante.UseCases.csproj",
+        "packagesPath": "C:\\Users\\redin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\redin\\OneDrive\\Área de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.UseCases\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\redin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "C:\\Users\\redin\\OneDrive\\Área de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.Borders\\Restaurante.Borders.csproj": {
+                "projectPath": "C:\\Users\\redin\\OneDrive\\Área de Trabalho\\ProjetosHV\\Restaurante\\Restaurante.Borders\\Restaurante.Borders.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.AspNet.Identity.Core": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
