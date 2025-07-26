@@ -1,69 +1,42 @@
-# Compiled object files
-*.o
-*.obj
-*.dll
-*.exe
-*.pdb
-*.log
-*.cache
-*.ilk
-*.lib
-*.dbg
-*.tlb
-*.tli
-*.tlh
-*.tmp
-*.vscode
-.vscode/
-
-# Folders
+# Build output
 bin/
 obj/
 debug/
 release/
 
+# VS folders
+.vs/
+.vscode/
+
 # User-specific files
-*.rsuser
-*.suo
 *.user
+*.suo
+*.rsuser
 *.userosscache
 *.sln.docstates
 
-# Mono Auto Generated Files
-mono_crash.*
-
-# VS Code directory
-.vscode/
-
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
-
-# Folder config file
-desktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# VS 2019 build results
-.vs/
-.vscode/
-
-# Backup & log files
+# Logs, caches, backups
 *.log
+*.tmp
 *.bak
 *.swp
 *.swo
-*.tmp
+*.cache
 
-# Include the Packages directory if it exists.
-**/packages/*
-
-# NuGet Packages
+# NuGet
 *.nupkg
 *.snupkg
+**/packages/*
 
-# Auto-generated files from Visual Studio
+# Mono
+mono_crash.*
+
+# System files
+Thumbs.db
+ehthumbs.db
+desktop.ini
+$RECYCLE.BIN/
+
+# Auto-generated
 *.vsidx
 *.vspx
-.vs/
