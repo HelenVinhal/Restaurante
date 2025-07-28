@@ -32,6 +32,7 @@ builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
 // Register the use case
 builder.Services.AddScoped<IAdicionarUsuarioUseCase, AdicionarUsuarioUseCase>();
 builder.Services.AddScoped<ILoginUsuarioUseCase, LoginUsuarioUseCase>();
+builder.Services.AddScoped<IListarUsuariosUseCase, ListarUsuariosUseCase>();
 
 // Register the JWT token service
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
