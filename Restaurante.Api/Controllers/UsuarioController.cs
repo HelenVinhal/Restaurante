@@ -11,11 +11,13 @@ namespace API.Controllers;
 public class UsuarioController : ControllerBase
 {
     private readonly IAdicionarUsuarioUseCase _adicionarUsuarioUseCase;
+    private readonly ILoginUsuarioUseCase _loginUsuarioUseCase;
 
 
-    public UsuarioController(IAdicionarUsuarioUseCase adicionarUsuarioUseCase)
+    public UsuarioController(IAdicionarUsuarioUseCase adicionarUsuarioUseCase, ILoginUsuarioUseCase loginUsuarioUseCase)
     {
         _adicionarUsuarioUseCase = adicionarUsuarioUseCase;
+        _loginUsuarioUseCase = loginUsuarioUseCase;
     }
 
     [HttpPost("adicionar")]
@@ -24,6 +26,13 @@ public class UsuarioController : ControllerBase
         await _adicionarUsuarioUseCase.Execute(adicionarUsuarioRequest);
 
         return NoContent();
+    }
+
+    [HttpPost("login")]
+    public async Task<ActionResult<string>> Login(LoginUsuarioRequest loginUsuarioRequest)
+    {
+        var token = await _loginUsuarioUseCase.Execute(loginUsuarioRequest);
+        return Ok(token);
     }
 
 }

@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNet.Identity;
+﻿using Microsoft.AspNetCore.Identity;
 using Restaurante.Api.Services;
 using Restaurante.Borders.Dtos;
 using Restaurante.Borders.Entites;
@@ -11,11 +11,12 @@ public class AdicionarUsuarioUseCase : IAdicionarUsuarioUseCase
 {
 
     private readonly IUsuarioRepository _usuarioRepository;
-    private readonly PasswordHasher _passwordHasher = new();
+    private readonly IPasswordHasher<Usuario> _passwordHasher;
 
-    public AdicionarUsuarioUseCase(IUsuarioRepository usuarioRepository)
+    public AdicionarUsuarioUseCase(IUsuarioRepository usuarioRepository, IPasswordHasher<Usuario> passwordHasher)
     {
         _usuarioRepository = usuarioRepository;
+        _passwordHasher = passwordHasher;
     }
 
     public async Task Execute(AdicionarUsuarioRequest adicionarUsuarioRequest)
@@ -32,10 +33,11 @@ public class AdicionarUsuarioUseCase : IAdicionarUsuarioUseCase
         var usuario = new Usuario
         {
             Email = adicionarUsuarioRequest.Email,
-            Senha = _passwordHasher.HashPassword(adicionarUsuarioRequest.Senha),
             DataCriacao = DateTime.Now,
             CriadoPor = adicionarUsuarioRequest.CriadoPor
         };
+
+        usuario.Senha = _passwordHasher.HashPassword(usuario, adicionarUsuarioRequest.Senha);
 
         await _usuarioRepository.AddAsync(usuario);
     }

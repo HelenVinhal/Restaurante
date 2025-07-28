@@ -1,0 +1,12 @@
+
+CREATE TABLE restaurante.usuarios (
+  id INT NOT NULL AUTO_INCREMENT,
+  email VARCHAR(254) NOT NULL,
+  senha VARCHAR(128) NOT NULL,
+  data_criacao DATETIME NOT NULL,
+  data_atualizacao DATETIME NULL,
+  criado_por VARCHAR(50) NULL,
+  atualizado_por VARCHAR(50) NULL,
+  ativo TINYINT NOT NULL DEFAULT 1,
+  PRIMARY KEY (id),
+  UNIQUE INDEX email_UNIQUE (email ASC) VISIBLE);
