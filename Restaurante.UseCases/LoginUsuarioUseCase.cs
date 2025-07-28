@@ -39,6 +39,8 @@ public class LoginUsuarioUseCase : ILoginUsuarioUseCase
             await _usuarioRepository.UpdateAsync(usuario);
         }
 
-        return await _jwtTokenService.GenerateToken(usuario.Id);
+        var token = await _jwtTokenService.GenerateToken(usuario.Id);
+
+        return token;
     }
 }

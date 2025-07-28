@@ -14,15 +14,22 @@ public class UsuarioController : ControllerBase
     private readonly IAdicionarUsuarioUseCase _adicionarUsuarioUseCase;
     private readonly ILoginUsuarioUseCase _loginUsuarioUseCase;
     private readonly IListarUsuariosUseCase _listarUsuarioUseCase;
+    private readonly IObterUsuarioPorIdUseCase _obterUsuarioPorIdUseCase;
 
 
-    public UsuarioController(IAdicionarUsuarioUseCase adicionarUsuarioUseCase, ILoginUsuarioUseCase loginUsuarioUseCase, IListarUsuariosUseCase listarUsuarioUseCase)
+    public UsuarioController(
+        IAdicionarUsuarioUseCase adicionarUsuarioUseCase,
+        ILoginUsuarioUseCase loginUsuarioUseCase,
+        IListarUsuariosUseCase listarUsuarioUseCase,
+        IObterUsuarioPorIdUseCase obterUsuarioPorIdUseCase)
     {
         _adicionarUsuarioUseCase = adicionarUsuarioUseCase;
         _loginUsuarioUseCase = loginUsuarioUseCase;
         _listarUsuarioUseCase = listarUsuarioUseCase;
+        _obterUsuarioPorIdUseCase = obterUsuarioPorIdUseCase;
     }
 
+    [Authorize]
     [HttpPost("adicionar")]
     public async Task<ActionResult> Cadastrar(AdicionarUsuarioRequest adicionarUsuarioRequest)
     {
@@ -38,12 +45,18 @@ public class UsuarioController : ControllerBase
         return Ok(token);
     }
 
-    [Authorize]
-    [HttpGet]
+    [HttpGet("listar")]
     public async Task<ActionResult<IEnumerable<UsuarioResponse>>> GetAll()
     {
         var usuarios = await _listarUsuarioUseCase.Execute();
         return Ok(usuarios);
+    }
+
+    [HttpGet("{id:int}")]
+    public async Task<ActionResult<UsuarioResponse>> GetById(int id)
+    {
+        var usuario = await _obterUsuarioPorIdUseCase.Execute(id);
+        return Ok(usuario);
     }
 
 }
