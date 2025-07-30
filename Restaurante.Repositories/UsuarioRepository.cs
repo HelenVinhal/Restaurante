@@ -28,15 +28,19 @@ public class UsuarioRepository : IUsuarioRepository
         await _db.ExecuteAsync(sql, parametros);
     }
 
-    public async Task DeleteAsync(int id)
+    public async Task DeleteAsync(int id, string atualizadoPor)
     {
         var sql = @"UPDATE Usuarios 
-                    SET ativo = @Ativo 
+                    SET ativo = @Ativo,
+                        atualizado_por = @AtualizadoPor, 
+                        data_atualizacao = @DataAtualizacao  
                     WHERE Id = @Id";
 
         var parametros = new DynamicParameters();
         parametros.Add("@Ativo", false, DbType.Boolean);
         parametros.Add("@Id", id, DbType.Int32);
+        parametros.Add("@AtualizadoPor", atualizadoPor, DbType.String);
+        parametros.Add("@DataAtualizacao", DateTime.Now, DbType.DateTime);
 
         await _db.ExecuteAsync(sql, parametros);
     }

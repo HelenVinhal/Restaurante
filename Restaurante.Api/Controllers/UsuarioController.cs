@@ -15,18 +15,21 @@ public class UsuarioController : ControllerBase
     private readonly ILoginUsuarioUseCase _loginUsuarioUseCase;
     private readonly IListarUsuariosUseCase _listarUsuarioUseCase;
     private readonly IObterUsuarioPorIdUseCase _obterUsuarioPorIdUseCase;
+    private readonly IExcluirUsuarioUseCase _excluirUsuarioUseCase;
 
 
     public UsuarioController(
         IAdicionarUsuarioUseCase adicionarUsuarioUseCase,
         ILoginUsuarioUseCase loginUsuarioUseCase,
         IListarUsuariosUseCase listarUsuarioUseCase,
-        IObterUsuarioPorIdUseCase obterUsuarioPorIdUseCase)
+        IObterUsuarioPorIdUseCase obterUsuarioPorIdUseCase,
+        IExcluirUsuarioUseCase excluirUsuarioUseCase)
     {
         _adicionarUsuarioUseCase = adicionarUsuarioUseCase;
         _loginUsuarioUseCase = loginUsuarioUseCase;
         _listarUsuarioUseCase = listarUsuarioUseCase;
         _obterUsuarioPorIdUseCase = obterUsuarioPorIdUseCase;
+        _excluirUsuarioUseCase = excluirUsuarioUseCase;
     }
 
     [Authorize]
@@ -34,7 +37,6 @@ public class UsuarioController : ControllerBase
     public async Task<ActionResult> Cadastrar(AdicionarUsuarioRequest adicionarUsuarioRequest)
     {
         await _adicionarUsuarioUseCase.Execute(adicionarUsuarioRequest);
-
         return NoContent();
     }
 
@@ -59,4 +61,10 @@ public class UsuarioController : ControllerBase
         return Ok(usuario);
     }
 
+    [HttpDelete("{id:int}")]
+    public async Task<ActionResult> Delete(int id, [FromQuery] string atualizadoPor)
+    {
+        await _excluirUsuarioUseCase.Execute(new ExcluirUsuarioRequest { Id = id, AtualizadoPor = atualizadoPor });
+        return NoContent();
+    }
 }
