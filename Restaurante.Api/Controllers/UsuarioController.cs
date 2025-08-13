@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Restaurante.Borders.Dtos;
 using Restaurante.Borders.UseCases;
 
@@ -16,6 +15,7 @@ public class UsuarioController : ControllerBase
     private readonly IListarUsuariosUseCase _listarUsuarioUseCase;
     private readonly IObterUsuarioPorIdUseCase _obterUsuarioPorIdUseCase;
     private readonly IExcluirUsuarioUseCase _excluirUsuarioUseCase;
+    private readonly IAtualizarEmailUsuarioUseCase _atualizarEmailUsuarioUseCase;
 
 
     public UsuarioController(
@@ -23,21 +23,23 @@ public class UsuarioController : ControllerBase
         ILoginUsuarioUseCase loginUsuarioUseCase,
         IListarUsuariosUseCase listarUsuarioUseCase,
         IObterUsuarioPorIdUseCase obterUsuarioPorIdUseCase,
-        IExcluirUsuarioUseCase excluirUsuarioUseCase)
+        IExcluirUsuarioUseCase excluirUsuarioUseCase,
+        IAtualizarEmailUsuarioUseCase atualizarEmailUsuarioUseCase)
     {
         _adicionarUsuarioUseCase = adicionarUsuarioUseCase;
         _loginUsuarioUseCase = loginUsuarioUseCase;
         _listarUsuarioUseCase = listarUsuarioUseCase;
         _obterUsuarioPorIdUseCase = obterUsuarioPorIdUseCase;
         _excluirUsuarioUseCase = excluirUsuarioUseCase;
+        _atualizarEmailUsuarioUseCase = atualizarEmailUsuarioUseCase;
     }
 
-    [Authorize]
+    //[Authorize]
     [HttpPost("adicionar")]
     public async Task<ActionResult> Cadastrar(AdicionarUsuarioRequest adicionarUsuarioRequest)
     {
         await _adicionarUsuarioUseCase.Execute(adicionarUsuarioRequest);
-        return NoContent();
+        return Created();
     }
 
     [HttpPost("login")]
@@ -65,6 +67,13 @@ public class UsuarioController : ControllerBase
     public async Task<ActionResult> Delete(int id, [FromQuery] string atualizadoPor)
     {
         await _excluirUsuarioUseCase.Execute(new ExcluirUsuarioRequest { Id = id, AtualizadoPor = atualizadoPor });
+        return NoContent();
+    }
+
+    [HttpPatch("email")]
+    public async Task<ActionResult> AtualizarEmail(AtualizarEmailUsuarioRequest atualizarEmailUsuarioRequest)
+    {
+        await _atualizarEmailUsuarioUseCase.Execute(atualizarEmailUsuarioRequest);
         return NoContent();
     }
 }
