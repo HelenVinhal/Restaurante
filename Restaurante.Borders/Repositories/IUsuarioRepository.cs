@@ -10,7 +10,6 @@ public interface IUsuarioRepository
     Task<IEnumerable<Usuario>> GetAllAsync();
     Task AddAsync(Usuario usuario);
     Task UpdateAsync(Usuario usuario);
-    Task AtualizarEmailAsync(string EmailAntigo, string senha, string novoEmail, string ConfirmarNovoEmail);
     Task DeleteAsync(int id, string atualizadoPor);
 
 }

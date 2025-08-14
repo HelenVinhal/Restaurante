@@ -28,26 +28,6 @@ public class UsuarioRepository : IUsuarioRepository
         await _db.ExecuteAsync(sql, parametros);
     }
 
-    public Task AtualizarEmailAsync(string EmailAntigo, string senha, string novoEmail, string ConfirmarNovoEmail)
-    {
-        var sql = @"UPDATE Usuarios 
-                    SET Email = @NovoEmail, 
-                        Senha = @Senha, 
-                        Data_Atualizacao = @DataAtualizacao, 
-                        Atualizado_Por = @AtualizadoPor 
-                    WHERE Email = @EmailAntigo AND Senha = @Senha";
-
-        var parametros = new DynamicParameters();
-        parametros.Add("@EmailAntigo", EmailAntigo, DbType.String);
-        parametros.Add("@Senha", senha, DbType.String);
-        parametros.Add("@NovoEmail", novoEmail, DbType.String);
-        parametros.Add("@DataAtualizacao", DateTime.Now, DbType.DateTime);
-        parametros.Add("@AtualizadoPor", "System", DbType.String);
-
-        return _db.ExecuteAsync(sql, parametros);
-
-    }
-
     public async Task DeleteAsync(int id, string atualizadoPor)
     {
         var sql = @"UPDATE Usuarios 

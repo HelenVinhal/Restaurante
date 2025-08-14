@@ -16,6 +16,7 @@ public class UsuarioController : ControllerBase
     private readonly IObterUsuarioPorIdUseCase _obterUsuarioPorIdUseCase;
     private readonly IExcluirUsuarioUseCase _excluirUsuarioUseCase;
     private readonly IAtualizarEmailUsuarioUseCase _atualizarEmailUsuarioUseCase;
+    private readonly IAtualizarSenhaUsuarioUseCase _atualizarSenhaUsuarioUseCase;
 
 
     public UsuarioController(
@@ -24,7 +25,8 @@ public class UsuarioController : ControllerBase
         IListarUsuariosUseCase listarUsuarioUseCase,
         IObterUsuarioPorIdUseCase obterUsuarioPorIdUseCase,
         IExcluirUsuarioUseCase excluirUsuarioUseCase,
-        IAtualizarEmailUsuarioUseCase atualizarEmailUsuarioUseCase)
+        IAtualizarEmailUsuarioUseCase atualizarEmailUsuarioUseCase,
+        IAtualizarSenhaUsuarioUseCase atualizarSenhaUsuarioUseCase)
     {
         _adicionarUsuarioUseCase = adicionarUsuarioUseCase;
         _loginUsuarioUseCase = loginUsuarioUseCase;
@@ -32,9 +34,9 @@ public class UsuarioController : ControllerBase
         _obterUsuarioPorIdUseCase = obterUsuarioPorIdUseCase;
         _excluirUsuarioUseCase = excluirUsuarioUseCase;
         _atualizarEmailUsuarioUseCase = atualizarEmailUsuarioUseCase;
+        _atualizarSenhaUsuarioUseCase = atualizarSenhaUsuarioUseCase;
     }
 
-    //[Authorize]
     [HttpPost("adicionar")]
     public async Task<ActionResult> Cadastrar(AdicionarUsuarioRequest adicionarUsuarioRequest)
     {
@@ -74,6 +76,13 @@ public class UsuarioController : ControllerBase
     public async Task<ActionResult> AtualizarEmail(AtualizarEmailUsuarioRequest atualizarEmailUsuarioRequest)
     {
         await _atualizarEmailUsuarioUseCase.Execute(atualizarEmailUsuarioRequest);
+        return NoContent();
+    }
+
+    [HttpPatch("{id:int}/senha")]
+    public async Task<ActionResult> AtualizarSenha(int id, AtualizarSenhaUsuarioRequest atualizarSenhaUsuarioRequest)
+    {
+        await _atualizarSenhaUsuarioUseCase.Execute((id, atualizarSenhaUsuarioRequest));
         return NoContent();
     }
 }

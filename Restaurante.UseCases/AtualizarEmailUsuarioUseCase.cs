@@ -22,7 +22,7 @@ public class AtualizarEmailUsuarioUseCase : IAtualizarEmailUsuarioUseCase
     public async Task Execute(AtualizarEmailUsuarioRequest request)
     {
         if (request.NovoEmail != request.ConfirmarNovoEmail)
-            throw new HttpStatusCodeException(400, "As senhas não conferem.");
+            throw new HttpStatusCodeException(400, "Os emails não conferem.");
 
         var usuarioRegistrado = await _usuarioRepository.GetByEmailAsync(request.NovoEmail);
 

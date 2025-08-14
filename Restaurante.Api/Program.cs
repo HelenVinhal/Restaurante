@@ -36,6 +36,7 @@ builder.Services.AddScoped<IListarUsuariosUseCase, ListarUsuariosUseCase>();
 builder.Services.AddScoped<IObterUsuarioPorIdUseCase, ObterUsuarioPorIdUseCase>();
 builder.Services.AddScoped<IExcluirUsuarioUseCase, ExcluirUsuarioUseCase>();
 builder.Services.AddScoped<IAtualizarEmailUsuarioUseCase, AtualizarEmailUsuarioUseCase>();
+builder.Services.AddScoped<IAtualizarSenhaUsuarioUseCase, AtualizarSenhaUsuarioUseCase>();
 
 // Register the JWT token service
 builder.Services.AddScoped<IJwtTokenService, JwtTokenService>();
