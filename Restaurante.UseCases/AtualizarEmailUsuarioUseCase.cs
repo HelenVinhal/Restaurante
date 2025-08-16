@@ -21,6 +21,16 @@ public class AtualizarEmailUsuarioUseCase : IAtualizarEmailUsuarioUseCase
 
     public async Task Execute(AtualizarEmailUsuarioRequest request)
     {
+        var usuario = await Validate(request);
+
+        usuario.Email = request.NovoEmail;
+        usuario.AtualizadoPor = request.AtualizadoPor;
+
+        await _usuarioRepository.UpdateAsync(usuario);
+    }
+
+    private async Task<Usuario> Validate(AtualizarEmailUsuarioRequest request)
+    {
         if (request.NovoEmail != request.ConfirmarNovoEmail)
             throw new HttpStatusCodeException(400, "Os emails não conferem.");
 
@@ -41,10 +51,6 @@ public class AtualizarEmailUsuarioUseCase : IAtualizarEmailUsuarioUseCase
 
         if (result == PasswordVerificationResult.SuccessRehashNeeded)
             usuario.Senha = _passwordHasher.HashPassword(usuario, request.Senha);
-
-        usuario.Email = request.NovoEmail;
-        usuario.AtualizadoPor = request.AtualizadoPor;
-
-        await _usuarioRepository.UpdateAsync(usuario);
+        return usuario;
     }
 }

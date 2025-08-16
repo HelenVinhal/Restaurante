@@ -24,6 +24,16 @@ namespace Restaurante.UseCases
         {
             var (id, atualizarSenhaUsuarioRequest) = request;
 
+            var usuario = await Validate(id, atualizarSenhaUsuarioRequest);
+
+            usuario.Senha = _passwordHasher.HashPassword(usuario, atualizarSenhaUsuarioRequest.NovaSenha);
+            usuario.AtualizadoPor = atualizarSenhaUsuarioRequest.AtualizadoPor;
+
+            await _usuarioRepository.UpdateAsync(usuario);
+        }
+
+        private async Task<Usuario> Validate(int id, AtualizarSenhaUsuarioRequest atualizarSenhaUsuarioRequest)
+        {
             if (atualizarSenhaUsuarioRequest.NovaSenha != atualizarSenhaUsuarioRequest.ConfirmarNovaSenha)
                 throw new HttpStatusCodeException(400, "As senhas não conferem.");
 
@@ -36,11 +46,7 @@ namespace Restaurante.UseCases
 
             if (result == PasswordVerificationResult.Failed)
                 throw new HttpStatusCodeException(401, "Senha incorreta.");
-
-            usuario.Senha = _passwordHasher.HashPassword(usuario, atualizarSenhaUsuarioRequest.NovaSenha);
-            usuario.AtualizadoPor = atualizarSenhaUsuarioRequest.AtualizadoPor;
-
-            await _usuarioRepository.UpdateAsync(usuario);
+            return usuario;
         }
     }
 

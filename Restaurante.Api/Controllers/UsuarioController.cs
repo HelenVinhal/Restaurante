@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Restaurante.Borders.Dtos;
 using Restaurante.Borders.UseCases;
 
@@ -7,11 +8,11 @@ namespace API.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 
 public class UsuarioController : ControllerBase
 {
     private readonly IAdicionarUsuarioUseCase _adicionarUsuarioUseCase;
-    private readonly ILoginUsuarioUseCase _loginUsuarioUseCase;
     private readonly IListarUsuariosUseCase _listarUsuarioUseCase;
     private readonly IObterUsuarioPorIdUseCase _obterUsuarioPorIdUseCase;
     private readonly IExcluirUsuarioUseCase _excluirUsuarioUseCase;
@@ -21,7 +22,6 @@ public class UsuarioController : ControllerBase
 
     public UsuarioController(
         IAdicionarUsuarioUseCase adicionarUsuarioUseCase,
-        ILoginUsuarioUseCase loginUsuarioUseCase,
         IListarUsuariosUseCase listarUsuarioUseCase,
         IObterUsuarioPorIdUseCase obterUsuarioPorIdUseCase,
         IExcluirUsuarioUseCase excluirUsuarioUseCase,
@@ -29,7 +29,6 @@ public class UsuarioController : ControllerBase
         IAtualizarSenhaUsuarioUseCase atualizarSenhaUsuarioUseCase)
     {
         _adicionarUsuarioUseCase = adicionarUsuarioUseCase;
-        _loginUsuarioUseCase = loginUsuarioUseCase;
         _listarUsuarioUseCase = listarUsuarioUseCase;
         _obterUsuarioPorIdUseCase = obterUsuarioPorIdUseCase;
         _excluirUsuarioUseCase = excluirUsuarioUseCase;
@@ -42,13 +41,6 @@ public class UsuarioController : ControllerBase
     {
         await _adicionarUsuarioUseCase.Execute(adicionarUsuarioRequest);
         return Created();
-    }
-
-    [HttpPost("login")]
-    public async Task<ActionResult<string>> Login(LoginUsuarioRequest loginUsuarioRequest)
-    {
-        var token = await _loginUsuarioUseCase.Execute(loginUsuarioRequest);
-        return Ok(token);
     }
 
     [HttpGet("listar")]
@@ -73,6 +65,7 @@ public class UsuarioController : ControllerBase
     }
 
     [HttpPatch("email")]
+    [Authorize]
     public async Task<ActionResult> AtualizarEmail(AtualizarEmailUsuarioRequest atualizarEmailUsuarioRequest)
     {
         await _atualizarEmailUsuarioUseCase.Execute(atualizarEmailUsuarioRequest);
@@ -80,6 +73,7 @@ public class UsuarioController : ControllerBase
     }
 
     [HttpPatch("{id:int}/senha")]
+    [Authorize]
     public async Task<ActionResult> AtualizarSenha(int id, AtualizarSenhaUsuarioRequest atualizarSenhaUsuarioRequest)
     {
         await _atualizarSenhaUsuarioUseCase.Execute((id, atualizarSenhaUsuarioRequest));

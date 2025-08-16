@@ -23,6 +23,15 @@ public class LoginUsuarioUseCase : ILoginUsuarioUseCase
 
     public async Task<string> Execute(LoginUsuarioRequest loginUsuarioRequest)
     {
+        var usuario = await Validate(loginUsuarioRequest);
+
+        var token = await _jwtTokenService.GenerateToken(usuario.Id);
+
+        return token;
+    }
+
+    private async Task<Usuario> Validate(LoginUsuarioRequest loginUsuarioRequest)
+    {
         var usuario = await _usuarioRepository.GetByEmailAsync(loginUsuarioRequest.Email);
 
         if (usuario == null)
@@ -39,8 +48,6 @@ public class LoginUsuarioUseCase : ILoginUsuarioUseCase
             await _usuarioRepository.UpdateAsync(usuario);
         }
 
-        var token = await _jwtTokenService.GenerateToken(usuario.Id);
-
-        return token;
+        return usuario;
     }
 }

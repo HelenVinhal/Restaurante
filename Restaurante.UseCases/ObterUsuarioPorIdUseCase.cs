@@ -1,5 +1,6 @@
 ﻿using Restaurante.Api.Services;
 using Restaurante.Borders.Dtos;
+using Restaurante.Borders.Entites;
 using Restaurante.Borders.Repositories;
 using Restaurante.Borders.UseCases;
 
@@ -16,10 +17,7 @@ public class ObterUsuarioPorIdUseCase : IObterUsuarioPorIdUseCase
 
     public async Task<UsuarioResponse> Execute(int id)
     {
-        var usuario = await _usuarioRepository.GetByIdAsync(id);
-
-        if (usuario == null)
-            throw new HttpStatusCodeException(404, "Usuário não encontrado.");
+        var usuario = await Validate(id);
 
         var usuarioResponse = new UsuarioResponse
         {
@@ -33,5 +31,14 @@ public class ObterUsuarioPorIdUseCase : IObterUsuarioPorIdUseCase
 
         return usuarioResponse;
 
+    }
+
+    private async Task<Usuario> Validate(int id)
+    {
+        var usuario = await _usuarioRepository.GetByIdAsync(id);
+
+        if (usuario == null)
+            throw new HttpStatusCodeException(404, "Usuário não encontrado.");
+        return usuario;
     }
 }

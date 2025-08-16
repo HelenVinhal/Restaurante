@@ -21,14 +21,7 @@ public class AdicionarUsuarioUseCase : IAdicionarUsuarioUseCase
 
     public async Task Execute(AdicionarUsuarioRequest adicionarUsuarioRequest)
     {
-        if (adicionarUsuarioRequest.Senha != adicionarUsuarioRequest.ConfirmarSenha)
-            throw new HttpStatusCodeException(400, "As senhas não conferem.");
-
-        var usuarioRegistrado = await _usuarioRepository.GetByEmailAsync(adicionarUsuarioRequest.Email);
-
-        if (usuarioRegistrado != null)
-            throw new HttpStatusCodeException(400, "Email já Cadastrado.");
-
+        await Validate(adicionarUsuarioRequest);
 
         var usuario = new Usuario
         {
@@ -40,5 +33,16 @@ public class AdicionarUsuarioUseCase : IAdicionarUsuarioUseCase
         usuario.Senha = _passwordHasher.HashPassword(usuario, adicionarUsuarioRequest.Senha);
 
         await _usuarioRepository.AddAsync(usuario);
+    }
+
+    private async Task Validate(AdicionarUsuarioRequest adicionarUsuarioRequest)
+    {
+        if (adicionarUsuarioRequest.Senha != adicionarUsuarioRequest.ConfirmarSenha)
+            throw new HttpStatusCodeException(400, "As senhas não conferem.");
+
+        var usuarioRegistrado = await _usuarioRepository.GetByEmailAsync(adicionarUsuarioRequest.Email);
+
+        if (usuarioRegistrado != null)
+            throw new HttpStatusCodeException(400, "Email já Cadastrado.");
     }
 }
